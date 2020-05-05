@@ -254,4 +254,13 @@ void func08 () {
     
 }
 
-
+//枚举例子
+enum Weekday {
+    sun,
+    mon,
+    tue,
+    wed,
+    thu,
+    fri,
+    sat
+};
