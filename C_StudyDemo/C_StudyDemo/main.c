@@ -173,10 +173,11 @@ struct Student01 {
 };
 
 void func07 (void);
+void func08 (void);
 
 int main(int argc, const char * argv[]) {
     
-    func07();
+    func08();
     
     return 0;
 }
@@ -217,6 +218,40 @@ struct Student01 max(struct Student01 stu[]) {
 void printMax(struct Student01 stu) {
     printf("成绩最高的学生是:\n");
     printf("学号:%d\n姓名:%s\n三门课成绩:%5.1f,%5.1f,%5.1f\n平均成绩:%6.2f\n",stu.num,stu.name,stu.score[0],stu.score[1],stu.score[2],stu.aver);
+}
+
+//声明定义共用体
+union Data {
+    int i;
+    char ch;
+    float f;
+} a,b,c;
+
+union Data01 {
+    int i;
+    char ch;
+    float f;
+};
+union Data01 a1,b1,c1;
+
+union {
+    int i;
+    char ch;
+    float f;
+} a2,b2,c2;
+
+void func08 () {
+    
+    union Data {
+        int i;
+        char ch;
+        float f;
+    } a = {1};
+    union Data b = {.ch='j'};
+    
+    printf("%d %c %f\n",a.i,a.ch,a.f);
+    printf("%d %c %f\n",b.i,b.ch,b.f);
+    
 }
 
 
