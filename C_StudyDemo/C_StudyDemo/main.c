@@ -175,13 +175,6 @@ struct Student01 {
 void func07 (void);
 void func08 (void);
 
-int main(int argc, const char * argv[]) {
-    
-    func08();
-    
-    return 0;
-}
-
 //输入学生信息输出平均成绩最好的学生
 void func07 () {
     void input(struct Student01 stu[]);
@@ -273,9 +266,9 @@ Integer i = 0;
 
 //结构体
 typedef struct {
+    int year;
     int mouth;
     int day;
-    int year;
 } Date;
 
 Date birthday;
@@ -296,3 +289,56 @@ typedef int (*Pointer)(void);
 Pointer p1,p2;
 
 
+int funcIsRunNian (int year);
+
+int days (Date date) {
+    //如果月份不对,返回0
+    if (date.mouth > 12 || date.mouth < 1) {
+        return 0;
+    }
+    //如果日期不对返回0
+    int mm = funcIsRunNian(date.year);
+    int a[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+    if (mm) {
+        a[1] = 29;
+    }
+    
+    if (date.day > a[date.mouth-1]) {
+        return 0;
+    }
+    
+    int days = 0;
+    for (int i = 0; i < date.mouth - 1; i++) {
+        days += a[i];
+    }
+    days += date.day;
+    return days;
+}
+
+int funcIsRunNian (int year) {
+    if (year % 100 && year % 4 == 0) {
+        return 1;
+    }
+    else if (year % 400 == 0) {
+        return 1;
+    }
+    return 0;
+}
+
+void func09 () {
+    Date a = {2000,3,30};
+    int result = days(a);
+    if (result) {
+        printf("第%d天\n",result);
+    }
+    else {
+        printf("日期输入错误\n");
+    }
+}
+
+int main(int argc, const char * argv[]) {
+    
+    func09();
+    
+    return 0;
+}
