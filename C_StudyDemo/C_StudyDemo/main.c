@@ -221,11 +221,11 @@ void printMax(struct Student01 stu) {
 }
 
 //声明定义共用体
-union Data {
-    int i;
-    char ch;
-    float f;
-} a,b,c;
+//union Data {
+//    int i;
+//    char ch;
+//    float f;
+//} a,b,c;
 
 union Data01 {
     int i;
@@ -264,3 +264,35 @@ enum Weekday {
     fri,
     sat
 };
+
+//指定Integer为int类型
+typedef int Integer;
+//等价
+//int i = 0;
+Integer i = 0;
+
+//结构体
+typedef struct {
+    int mouth;
+    int day;
+    int year;
+} Date;
+
+Date birthday;
+Date *p;
+//数组
+typedef int Num[100];
+//定义a为整型数组名,他有100元素.
+Num a;
+
+//指针,声明String为字符指针类型
+typedef char * String;
+//定义一个p为字符指针,s为z字符指针数组
+String p01,s[10];
+
+//函数指针,声明Pointer为指向函数的指针类型,该类型返回整型数值
+typedef int (*Pointer)(void);
+//p1,p2为Pointer类型的指针变量
+Pointer p1,p2;
+
+
